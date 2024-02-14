@@ -1,0 +1,78 @@
+{% extends 'layout.html' %} {% block content %} {% load static %}
+
+<div class="my-4">
+
+  <header class="row bg-black p-3">
+    <div class="col-md-4">
+      <img src="{% static 'portfolio/profile.png' %}" alt="" />
+    </div>
+  
+    <div class="col-md-8 my-auto">
+      <h1>I am <strong>Daniel Abalsamo</strong></h1>
+      <h3>I am Python backend developer</h3>
+      <p>
+        Diseñador industrial con más de 8 años de experiencia laboral y una sólida
+        trayectoria en gestión de proyectos en tecnología y desarrollo de
+        productos. En mi última experiencia laboral lideré proyectos de desarrollo
+        de productos y optimización de los existentes. Me apasiona integrar el
+        diseño y la tecnología en mi vida profesional y personal. Mis
+        conocimientos en UX/UI han fortalecido mi capacidad para crear productos
+        intuitivos y atractivos, y en los últimos meses, me he especializado en
+        Python para el desarrollo web backend, lo que me ha permitido abordar
+        proyectos de manera integral. Busco seguir desarrollando mis habilidades y
+        así continuar trabajando con tecnologías innovadoras.
+      </p>
+      <a
+        href="{% static 'portfolio/CV Daniel Abalsamo.pdf' %}"
+        class="btn btn-primary btn-lg rounded-0 my-3"
+        >Download CV</a
+      >
+    </div>
+  </header>
+</div>
+
+<div class="row my-4 text-center">
+  <h3>Skills</h3>
+</div>
+
+<div class="text-center">
+  <a class="btn btn-primary" href="#" role="button">Python</a>
+  <button class="btn btn-primary" type="submit">SQL</button>
+  <input class="btn btn-primary" type="button" value="Django">
+  <input class="btn btn-primary" type="submit" value="Figma">
+  <input class="btn btn-primary" type="reset" value="UX/UI">
+</div>
+
+
+<div class="row my-5 text-center">
+  <h3>My Projects</h3>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, quasi!</p>
+
+  {% for project in projects %}
+
+  <div class="col-md-4 p-4">
+    <div class="card bg-black card-project">
+      <img
+        src="{{project.image.url}}"
+        alt="{{project.title}}"
+        class="card-img-top"
+      />
+      <div class="card-body text-light">
+        <h2>{{project.title}}</h2>
+        <p>{{project.description}}</p>
+
+        {% if project.url %}
+        <a
+          href="{{project.url}}"
+          class="btn btn-light rounded-0 btn-sm"
+          target="_blank"
+          >{{project.url}}</a
+        >
+
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  {% endfor %} {% endblock %}
+</div>
